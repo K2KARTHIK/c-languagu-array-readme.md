@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main()
+{
+    int arrival[200],depart[200],num;
+    scanf("%d",&num);
+    for(int k=0;k<num;k++)
+    {
+        scanf("%d",&arrival[k]);
+    }
+    for(int k=0;k<num;k++)
+    {
+        scanf("%d",&depart[k]);
+    }
+    int pfs=1,mpfs=1,i=1,j=0;
+    while(i<num&&j<num)
+    {
+        if(arrival[i]<=depart[j])
+        {
+            pfs +=1;
+            i +=1;  
+        }
+        else if(arrival[i]>depart[j])
+        {
+            pfs -=1;
+            j +=1;
+        } 
+        if(pfs>mpfs)
+        mpfs=pfs;
+    }
+    printf("%d",mpfs);
+
+
+}
